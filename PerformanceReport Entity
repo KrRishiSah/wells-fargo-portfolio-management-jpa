@@ -1,0 +1,21 @@
+import jakarta.persistence.*;
+import java.time.LocalDate;
+
+@Entity
+@Table(name = "performance_reports")
+public class PerformanceReport {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long reportId;
+
+    private LocalDate reportDate;
+    private Double totalValue;
+    private Double returnPercentage;
+
+    @ManyToOne
+    @JoinColumn(name = "portfolio_id")
+    private Portfolio portfolio;
+
+    // getters and setters
+}
