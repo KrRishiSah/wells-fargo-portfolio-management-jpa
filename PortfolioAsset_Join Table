@@ -1,0 +1,24 @@
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "portfolio_assets")
+public class PortfolioAsset {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long portfolioAssetId;
+
+    private Integer quantity;
+    private Double allocationPercentage;
+    private Double currentValue;
+
+    @ManyToOne
+    @JoinColumn(name = "portfolio_id")
+    private Portfolio portfolio;
+
+    @ManyToOne
+    @JoinColumn(name = "asset_id")
+    private Asset asset;
+
+    // getters and setters
+}
